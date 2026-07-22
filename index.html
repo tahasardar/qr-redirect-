@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Redirecting…</title>
+
+  <!-- Load the destination URL (the one file you edit). -->
+  <script src="redirect.js"></script>
+
+  <!-- Redirect as early as possible, before the page even paints.
+       If DESTINATION is empty, do nothing and let the fallback
+       landing page below show instead. -->
+  <script>
+    if (typeof DESTINATION === "string" && DESTINATION.trim() !== "") {
+      // "replace" keeps this page out of the back button history,
+      // so tapping Back never traps the visitor here.
+      window.location.replace(DESTINATION.trim());
+    }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: linear-gradient(160deg, #eef2ff 0%, #fdf2f8 100%);
+      color: #1e293b;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(30, 41, 59, 0.10);
+      padding: 40px 28px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .icon { font-size: 56px; line-height: 1; }
+
+    h1 {
+      font-size: 22px;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #64748b;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 22px;
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #6366f1;
+      background: #eef2ff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body { background: linear-gradient(160deg, #0f172a 0%, #1e1b2e 100%); color: #e2e8f0; }
+      .card { background: #1e293b; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45); }
+      p { color: #94a3b8; }
+      .badge { color: #a5b4fc; background: #312e81; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fallback landing page — visitors only ever see this when
+       DESTINATION in redirect.js is empty. -->
+  <main class="card">
+    <div class="icon">🔗</div>
+    <h1>This QR code isn't linked yet</h1>
+    <p>The owner hasn't set a destination for this code.
+       Check back soon — the same QR code will take you
+       somewhere new once it's activated.</p>
+    <span class="badge">Dynamic QR</span>
+  </main>
+
+  <noscript>
+    <p style="text-align:center; padding: 16px;">
+      Please enable JavaScript to be redirected.
+    </p>
+  </noscript>
+</body>
+</html>
